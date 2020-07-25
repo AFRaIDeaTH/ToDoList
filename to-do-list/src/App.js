@@ -10,6 +10,8 @@ class App extends Component {
         id: 0,
       },
     ],
+    completed: [],
+    failed: [],
   };
   addTodo = (todo) => {
     todo.id =
@@ -20,20 +22,43 @@ class App extends Component {
     this.setState({
       todos: todos,
     });
-    console.log(this.state);
   };
-  deleteTodo = (id) => {
+  completeTodo = (id) => {
+    let completedTodo = this.state.todos.find((todo) => {
+      return todo.id === id;
+    });
     let newTodos = this.state.todos.filter((todo) => {
       return todo.id !== id;
     });
+    let newCompleted = [...this.state.completed, completedTodo];
     this.setState({
       todos: newTodos,
+      completed: newCompleted,
+    });
+  };
+  failTodo = (id) => {
+    let failedTodo = this.state.todos.find((todo) => {
+      return todo.id === id;
+    });
+    let newTodos = this.state.todos.filter((todo) => {
+      return todo.id !== id;
+    });
+    let newFailed = [...this.state.failed, failedTodo];
+    this.setState({
+      todos: newTodos,
+      failed: newFailed,
     });
   };
   render() {
     return (
       <div className="App">
-        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
+        <Todos
+          todos={this.state.todos}
+          completed={this.state.completed}
+          failed={this.state.failed}
+          completeTodo={this.completeTodo}
+          failTodo={this.failTodo}
+        />
         <AddTodo addTodo={this.addTodo} />
       </div>
     );
