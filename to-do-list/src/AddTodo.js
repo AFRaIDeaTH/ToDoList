@@ -18,8 +18,13 @@ class AddTodo extends Component {
     return (
       <div>
         <form className="new-todo" onSubmit={this.handleSubmit}>
-          <label htmlFor="task">New todo:</label>
-          <input type="text" id="task" onChange={this.handleChange} />
+          <label htmlFor="task">New todo: </label>
+          <input
+            autocomplete="off"
+            type="text"
+            id="task"
+            onChange={this.handleChange}
+          />
           <button className="submit-todo">
             <MdAdd />
           </button>

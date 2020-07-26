@@ -44,9 +44,18 @@ function Todos({ todos, completed, failed, completeTodo, failTodo }) {
 
   return (
     <div className="full-list">
-      <div className="todo-list">{todoList}</div>
-      <div className="completed-list">{completedList}</div>
-      <div className="failed-list">{failedList}</div>
+      <div className="todo-list">
+        Pending tasks to do<br></br>
+        {todoList}
+      </div>
+      <div className="completed-list">
+        Completed tasks<br></br>
+        {completedList}
+      </div>
+      <div className="failed-list">
+        Failed tasks<br></br>
+        {failedList}
+      </div>
     </div>
   );
 }
