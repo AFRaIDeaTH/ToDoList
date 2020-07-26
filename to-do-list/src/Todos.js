@@ -1,4 +1,5 @@
 import React from "react";
+import { MdCheck, MdClose } from "react-icons/md";
 
 function Todos({ todos, completed, failed, completeTodo, failTodo }) {
   const todoList = todos.map((todo) => {
@@ -6,18 +7,20 @@ function Todos({ todos, completed, failed, completeTodo, failTodo }) {
       <div className="todo" key={todo.id}>
         {todo.task}
         <button
+          className="complete-todo"
           onClick={() => {
             completeTodo(todo.id);
           }}
         >
-          Completed
+          <MdCheck color="green" />
         </button>
         <button
+          className="fail-todo"
           onClick={() => {
             failTodo(todo.id);
           }}
         >
-          Failed
+          <MdClose color="crimson" />
         </button>
       </div>
     );

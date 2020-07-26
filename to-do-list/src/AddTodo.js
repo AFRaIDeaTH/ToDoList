@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { MdAdd } from "react-icons/md";
 
 class AddTodo extends Component {
   state = {
@@ -16,10 +17,12 @@ class AddTodo extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="new-todo" onSubmit={this.handleSubmit}>
           <label htmlFor="task">New todo:</label>
           <input type="text" id="task" onChange={this.handleChange} />
-          <button>Submit</button>
+          <button className="submit-todo">
+            <MdAdd />
+          </button>
         </form>
       </div>
     );

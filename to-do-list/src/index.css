@@ -49,3 +49,15 @@ div.failed-list {
   padding: 20px;
   margin: 10px;
 }
+
+form.new-todo {
+  padding: 20px;
+  margin: 10px;
+  border: 1px dashed slategray;
+  text-align: center;
+}
+
+button {
+  padding: 0px 4px;
+  margin: 0px 3px 0px 1px;
+}
